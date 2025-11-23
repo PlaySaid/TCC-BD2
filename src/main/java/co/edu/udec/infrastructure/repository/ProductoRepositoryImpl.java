@@ -65,7 +65,7 @@ public class ProductoRepositoryImpl implements ProductoRepository {
 
     @Override
     public boolean guardar(Producto producto) {
-        String sql = "INSERT INTO productos (nombre, descripcion, precio_compra, precio_venta, stock) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO productos (nombre, descripcion, precio_compra, precio_venta, stock, id_categoria) VALUES (?, ?, ?, ?, ?, 1)";
 
         try (Connection conn = MySQLConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {

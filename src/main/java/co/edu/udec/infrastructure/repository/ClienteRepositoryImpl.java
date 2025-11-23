@@ -86,7 +86,7 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 
     @Override
     public boolean actualizar(Cliente cliente) {
-        String sql = "UPDATE clientes SET nombre=?, telefono=?, email=?, direccion=? WHERE id_cliente=?";
+        String sql = "UPDATE clientes SET nombre=?, telefono=?, email=?, direccion=?, fecha_registro=? WHERE id_cliente=?";
 
         try (Connection conn = MySQLConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -95,7 +95,8 @@ public class ClienteRepositoryImpl implements ClienteRepository {
             stmt.setString(2, cliente.getTelefono());
             stmt.setString(3, cliente.getEmail());
             stmt.setString(4, cliente.getDireccion());
-            stmt.setInt(5, cliente.getId());
+            stmt.setDate(5,cliente.getFecha_registro());
+            stmt.setInt(6, cliente.getId());
 
             return stmt.executeUpdate() > 0;
 
