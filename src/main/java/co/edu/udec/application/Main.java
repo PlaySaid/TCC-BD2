@@ -133,7 +133,7 @@ public class Main {
         double precioVenta = leerDouble("Precio venta: ");
         int stock = leerInt("Stock inicial: ");
 
-        // ⚠ ESTE ES EL CONSTRUCTOR CORRECTO SEGÚN TU CLASE Producto
+        // ---------------- CONSTRUCTOR ----------------
         Producto p = new Producto(0, nombre, descripcion, precioCompra, precioVenta, stock);
 
         boolean ok = productoService.crearProducto(p);
